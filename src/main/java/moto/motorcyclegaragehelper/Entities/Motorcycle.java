@@ -1,44 +1,38 @@
-package Entities;
+package moto.motorcyclegaragehelper.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
+import java.time.Year;
 import java.util.Date;
 
 @Entity
-
+@Table(name = "motorcycles")
 public class Motorcycle {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "moto_id")
     private Long id;
 
-    private Long OwnerId;
 
+    @Column(name = "Brand")
     private String Brand;
+    @Column(name = "Model")
     private String Model;
+    @Column(name = "Color")
     private String Color;
 
-    public int getYear() {
+    @Column(name = "Year")
+    private Year Year;
+    @Column(name = "lastOilChangeDate")
+    private Date lastOilChangeDate;
+
+
+    public Year getYear() {
         return Year;
     }
 
-    public void setYear(int year) {
+    public void setYear(Year year) {
         Year = year;
-    }
-
-    private int Year;
-    private Date dateChainCleaned;
-    private Date lastOilChangeDate;
-    private String notes;
-
-    public Long getOwnerId() {
-        return OwnerId;
-    }
-
-    public void setOwnerId(Long ownerId) {
-        OwnerId = ownerId;
     }
 
     public String getBrand() {
@@ -65,12 +59,12 @@ public class Motorcycle {
         Color = color;
     }
 
-    public Date getDateChainCleaned() {
-        return dateChainCleaned;
-    }
-
-    public void setDateChainCleaned(Date dateChainCleaned) {
-        this.dateChainCleaned = dateChainCleaned;
+    public void motorcycle(){
+        this.setYear(Year);
+        this.setBrand(Brand);
+        this.setModel(Model);
+        this.setColor(Color);
+        this.setLastOilChangeDate(lastOilChangeDate);
     }
 
     public Date getLastOilChangeDate() {
@@ -81,11 +75,4 @@ public class Motorcycle {
         this.lastOilChangeDate = lastOilChangeDate;
     }
 
-    public String getNotes() {
-        return notes;
-    }
-
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
 }
