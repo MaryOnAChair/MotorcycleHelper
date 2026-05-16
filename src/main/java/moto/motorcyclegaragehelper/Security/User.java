@@ -1,4 +1,4 @@
-package Security;
+package moto.motorcyclegaragehelper.Security;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

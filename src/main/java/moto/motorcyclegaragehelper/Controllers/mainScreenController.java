@@ -1,4 +1,4 @@
-package Controllers;
+package moto.motorcyclegaragehelper.Controllers;
 
 import ch.qos.logback.core.model.Model;
 import org.springframework.web.bind.annotation.CrossOrigin;

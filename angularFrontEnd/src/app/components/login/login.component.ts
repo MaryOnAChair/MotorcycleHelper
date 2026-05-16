@@ -11,4 +11,5 @@ import {RouterLink} from '@angular/router';
 })
 export class LoginComponent {
 
+  protected readonly RouterLink = RouterLink;
 }
