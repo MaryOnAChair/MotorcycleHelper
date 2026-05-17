@@ -1,14 +1,17 @@
 <h1 class="title" xmlns:th="http://www.w3.org/1999/xhtml">My Virtual Garage</h1>
 
 
-<form th:action="@{/Motorcycles/save}" th:object="${Motorcyle}" method="post">
+<div>
 
+  <input [(ngModel)]="motorcycle.brand" placeholder="Brand">
+  <input [(ngModel)]="motorcycle.model" placeholder="Model">
+  <input [(ngModel)]="motorcycle.year" placeholder="Year">
 
   <button (click)="addMotorcycle()">Add</button>
 
-</form>
+</div>>
 
-<div *ngFor="let bike of motorcyles">
+<div *ngFor="let bike of motorcycles">
   <h3>{{bike.brand}}</h3>
   <h3>{{bike.model}}</h3>
   <h3>{{bike.year}}</h3>

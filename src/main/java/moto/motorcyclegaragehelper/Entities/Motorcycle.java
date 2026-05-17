@@ -2,7 +2,6 @@ package moto.motorcyclegaragehelper.Entities;
 
 import jakarta.persistence.*;
 
-import java.time.Year;
 import java.util.Date;
 
 @Entity
@@ -11,68 +10,79 @@ public class Motorcycle {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "moto_id")
-    private Long id;
+    private Long moto_id;
 
 
-    @Column(name = "Brand")
-    private String Brand;
-    @Column(name = "Model")
-    private String Model;
-    @Column(name = "Color")
-    private String Color;
+    @Column(name = "brand")
+    private String brand;
+    @Column(name = "model")
+    private String model;
+    @Column(name = "color")
+    private String color;
 
-    @Column(name = "Year")
-    private Year Year;
-    @Column(name = "lastOilChangeDate")
-    private Date lastOilChangeDate;
+    @Column(name = "year")
+    private int year;
+    @Column(name = "last_Oil_Change_Date")
+    private String last_Oil_Change_Date;
 
 
-    public Year getYear() {
-        return Year;
+   public Motorcycle( String brand, String model, String color, int year ) {
+        this.brand = brand;
+        this.model = model;
+        this.color = color;
+        this.year = year;
     }
 
-    public void setYear(Year year) {
-        Year = year;
+    public Motorcycle() {
+
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        year = year;
     }
 
     public String getBrand() {
-        return Brand;
+        return brand;
     }
 
     public void setBrand(String brand) {
-        Brand = brand;
+        brand = brand;
     }
 
     public String getModel() {
-        return Model;
+        return model;
     }
 
     public void setModel(String model) {
-        Model = model;
+        model = model;
     }
 
     public String getColor() {
-        return Color;
+        return color;
     }
 
     public void setColor(String color) {
-        Color = color;
+        color = color;
     }
 
     public void motorcycle(){
-        this.setYear(Year);
-        this.setBrand(Brand);
-        this.setModel(Model);
-        this.setColor(Color);
-        this.setLastOilChangeDate(lastOilChangeDate);
+        this.setYear(year);
+        this.setBrand(brand);
+        this.setModel(model);
+        this.setColor(color);
+        this.setLastOilChangeDate(last_Oil_Change_Date);
     }
 
-    public Date getLastOilChangeDate() {
-        return lastOilChangeDate;
+    public String getLastOilChangeDate() {
+        return last_Oil_Change_Date;
     }
 
-    public void setLastOilChangeDate(Date lastOilChangeDate) {
-        this.lastOilChangeDate = lastOilChangeDate;
+    public void setLastOilChangeDate(String lastOilChangeDate) {
+        this.last_Oil_Change_Date = lastOilChangeDate;
     }
 
 }

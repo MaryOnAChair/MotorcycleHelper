@@ -4,6 +4,9 @@ import {HttpClient} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import {NgForOf} from '@angular/common';
 
+import {MotorcycleService} from '../../services/motorcycle.service';
+import {Motorcycle} from '../../models/motorcycle';
+
 @Component({
   selector: 'app-home',
   imports: [
@@ -14,31 +17,42 @@ import {NgForOf} from '@angular/common';
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
-  motorcyles: any[]=[];
-  motorcyle = {
-    brand: " ",
-    model: " ",
-    year: " "
+  motorcycles: Motorcycle[] = [];
+  motorcycle: Motorcycle = {
+    last_oil_change_date: '', moto_id: 0,
+    color: '',
+    brand: "",
+    model: "",
+    year: 2023
   };
-  constructor(private http: HttpClient) {
+
+  constructor(private http: HttpClient, private motorcycleService: MotorcycleService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void{
     this.loadMotorcycles();
   }
 
-  loadMotorcycles() {
-    this.http.get<any[]>("http://localhost:8080/garage").subscribe((data: any) => {
-      this.motorcyles = data;
-    });
+  loadMotorcycles(): void {
+
+    this.motorcycleService
+      .getAllMotorcycles()
+      .subscribe(data => {
+
+        this.motorcycles = data;
+      });
   }
 
-  addMotorcycle(){
-    this.http.post("http://localhost:8080/garage",
-      this.motorcyle
-    ).subscribe((data: any) => {
-      this.loadMotorcycles();
-    });
+
+
+  addMotorcycle(): void {
+    this.motorcycleService
+      .createMotorcycle(this.motorcycle)
+      .subscribe(() => {
+
+        this.loadMotorcycles();
+
+      });
   }
 
 }
