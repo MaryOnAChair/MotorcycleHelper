@@ -10,9 +10,10 @@
   <button (click)="addMotorcycle()">Add</button>
 
 </div>>
-
-<div *ngFor="let bike of motorcycles">
-  <h3>{{bike.brand}}</h3>
-  <h3>{{bike.model}}</h3>
-  <h3>{{bike.year}}</h3>
+<div class="bikeGrid">
+<div class="bikeCard" *ngFor="let bike of motorcycles">
+  <h3>{{bike.brand}}
+      {{bike.model}}</h3>
+  <h4>{{bike.year}}</h4>
+</div>
 </div>
