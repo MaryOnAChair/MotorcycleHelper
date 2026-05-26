@@ -1,19 +1,24 @@
 <h1 class="title" xmlns:th="http://www.w3.org/1999/xhtml">My Virtual Garage</h1>
 
 
-<div>
+<div class="AddBikeForm">
+  <h2>Add a Motorcycle</h2>
 
-  <input [(ngModel)]="motorcycle.brand" placeholder="Brand">
-  <input [(ngModel)]="motorcycle.model" placeholder="Model">
-  <input [(ngModel)]="motorcycle.year" placeholder="Year">
+
+  <input placeholder="Brand" [(ngModel)]="motorcycle.brand" />
+  <input placeholder="Model" [(ngModel)]="motorcycle.model" />
+  <input type="number" placeholder="Year" [(ngModel)]="motorcycle.year" />
 
   <button (click)="addMotorcycle()">Add</button>
 
-</div>>
+</div>
+
+
 <div class="bikeGrid">
 <div class="bikeCard" *ngFor="let bike of motorcycles">
   <h3>{{bike.brand}}
       {{bike.model}}</h3>
   <h4>{{bike.year}}</h4>
+  <button (click)="deleteMotorcycle(bike.moto_id)">Delete</button>
 </div>
 </div>

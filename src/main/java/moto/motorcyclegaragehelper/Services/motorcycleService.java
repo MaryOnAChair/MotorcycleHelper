@@ -7,26 +7,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service
-public class motorcycleService {
+public interface motorcycleService {
 
-    @Autowired
-    private final motorcycleRepository motorcycleRepository;
+    List<Motorcycle> getAllMotorcycles();
 
-    public motorcycleService(motorcycleRepository motorcycleRepository) {
-        this.motorcycleRepository = motorcycleRepository;
-    }
+    Motorcycle createMotorcycle(
+            Motorcycle motorcycle);
 
-    public List<Motorcycle> getAllMotorcycles(){
-        return motorcycleRepository.findAll();
-    }
-
-    public Motorcycle createMotorcycle(Motorcycle motorcycle){
-        return motorcycleRepository.save(motorcycle);
-    }
-
-    public void deleteMotorcycle(Long id){
-        motorcycleRepository.deleteById(id);
-    }
-
+    void deleteMotorcycle(Long moto_id);
 }

@@ -1,5 +1,6 @@
 package moto.motorcyclegaragehelper.Entities;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -7,6 +8,10 @@ import java.util.Date;
 @Entity
 @Table(name = "motorcycles")
 public class Motorcycle {
+    public Long getMoto_id() {
+        return moto_id;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "moto_id")
@@ -21,32 +26,38 @@ public class Motorcycle {
     private String color;
 
     @Column(name = "year")
-    private int year;
+    private Integer year;
     @Column(name = "last_Oil_Change_Date")
     private String last_Oil_Change_Date;
 
 
-   public Motorcycle( String brand, String model, String color, int year ) {
+   public Motorcycle( String brand, String model, String color, Integer year,Long moto_id,String last_Oil_Change_Date ) {
         this.brand = brand;
         this.model = model;
         this.color = color;
         this.year = year;
+        this.moto_id = moto_id;
+        this.last_Oil_Change_Date = last_Oil_Change_Date;
     }
 
     public Motorcycle() {
 
     }
 
-    public int getYear() {
+    public Integer getYear() {
         return year;
     }
 
-    public void setYear(int year) {
-        year = year;
+    public void setYear(Integer year) {
+        this.year = year;
     }
 
     public String getBrand() {
         return brand;
+    }
+
+    public void setMoto_id(Long moto_id) {
+        this.moto_id = moto_id;
     }
 
     public void setBrand(String brand) {
@@ -84,5 +95,6 @@ public class Motorcycle {
     public void setLastOilChangeDate(String lastOilChangeDate) {
         this.last_Oil_Change_Date = lastOilChangeDate;
     }
+
 
 }
