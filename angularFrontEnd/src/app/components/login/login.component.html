@@ -2,8 +2,22 @@
 
 <div>
   <h1>The Garage</h1>
-  <input type="text" placeholder="Username">
-  <input type="text" placeholder="Password">
+  <h2>Login</h2>
 
-  <button routerLink="/home">Login</button>
+  <input
+    type="text"
+    [(ngModel)]="username"
+    placeholder="Username"
+  />
+
+  <input
+    type="password"
+    [(ngModel)]="password"
+    placeholder="Password"
+  />
+
+  <button (click)="login()">
+    Login
+  </button>
+
 </div>

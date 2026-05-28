@@ -1,16 +1,17 @@
-package moto.motorcyclegaragehelper.Security;
+package moto.motorcyclegaragehelper.Entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "user")
 public class User {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(unique = true)
     private String Username;
+
     private String Password;
 
     public String getEmail() {
