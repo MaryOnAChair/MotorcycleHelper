@@ -3,6 +3,8 @@ package moto.motorcyclegaragehelper.Security;
 public class LoginRequest {
 
     private String username;
+    private String password;
+    private String email;
 
     public String getPassword() {
         return password;
@@ -20,5 +22,11 @@ public class LoginRequest {
         this.username = username;
     }
 
-    private String password;
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    public String getEmail() {
+        return email;
+    }
 }

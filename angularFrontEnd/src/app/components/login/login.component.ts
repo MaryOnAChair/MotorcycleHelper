@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
 import {FormsModule} from '@angular/forms';
+import {User} from '../../models/user';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +15,7 @@ import {FormsModule} from '@angular/forms';
 })
 export class LoginComponent {
 
-  username = '';
-  password = '';
+  user: User = new User();
 
   constructor(private auth: AuthService) {
   }
@@ -24,12 +24,10 @@ export class LoginComponent {
   protected readonly RouterLink = RouterLink;
 
   login(){
-    const body =-{
-      username: this.username,
-      password: this.password
-    };
-    this.auth.login(body).subscribe({
-      next: (result) => {
+
+    this.auth.login(this.user).subscribe({
+      next: (result:any) => {
+        console.log(result);
         this.auth.saveToken(result.token)
         console.log("logged in works");
       },
