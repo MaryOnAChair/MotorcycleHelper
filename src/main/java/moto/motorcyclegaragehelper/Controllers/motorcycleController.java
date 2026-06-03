@@ -1,12 +1,17 @@
 package moto.motorcyclegaragehelper.Controllers;
 
 import moto.motorcyclegaragehelper.Entities.Motorcycle;
+import moto.motorcyclegaragehelper.Entities.User;
+import moto.motorcyclegaragehelper.Repositories.UserRepository;
 import moto.motorcyclegaragehelper.Repositories.motorcycleRepository;
 import moto.motorcyclegaragehelper.Services.motorcycleService;
+import moto.motorcyclegaragehelper.Services.userService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/motorcycle")
@@ -15,10 +20,12 @@ public class motorcycleController {
 
     public final motorcycleRepository motorcycleRepository;
     private final motorcycleService motorcycleService;
+    private final UserRepository userRepository;
 
-    public motorcycleController(motorcycleRepository motorcycleRepository, motorcycleService motorcycleService) {
+    public motorcycleController(motorcycleRepository motorcycleRepository, motorcycleService motorcycleService, UserRepository userRepository) {
         this.motorcycleRepository = motorcycleRepository;
         this.motorcycleService = motorcycleService;
+        this.userRepository = userRepository;
     }
 
     @GetMapping("/{moto_id}")
@@ -27,12 +34,24 @@ public class motorcycleController {
     }
 
     @GetMapping
-    public List<Motorcycle> getAll() {
-        return motorcycleRepository.findAll();
+    public List<Motorcycle> getAll(Authentication authentication) {
+        System.out.println(authentication.getName());
+        System.out.println(authentication);
+        return  motorcycleRepository.findByUserUsername(authentication.getName());
+
     }
 
     @PostMapping
-    public Motorcycle createMotorcycle(@RequestBody Motorcycle motorcycle) {
+    public Motorcycle createMotorcycle(@RequestBody Motorcycle motorcycle,Authentication authentication) {
+       System.out.println(authentication.getName());
+       System.out.println(authentication);
+
+       String userName = authentication.getName();
+
+       User user = userRepository.findByUsername(userName)
+                       .orElseThrow(()-> new RuntimeException("Username not found"));
+       motorcycle.setUser(user);
+
         motorcycle.setMoto_id(null);
        return motorcycleService.createMotorcycle(motorcycle);
     }

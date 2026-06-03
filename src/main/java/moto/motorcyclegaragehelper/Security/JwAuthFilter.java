@@ -29,36 +29,38 @@ public class JwAuthFilter extends OncePerRequestFilter {
             throws ServletException,
             IOException {
 
-        String authHeader =
-                request.getHeader(
-                        "Authorization");
 
-        if(authHeader != null &&
-                authHeader.startsWith("Bearer ")) {
+        if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
+            filterChain.doFilter(request, response);
+            return;
+        }
 
-            String token =
-                    authHeader.substring(7);
+        String authHeader = request.getHeader("Authorization");
 
-            String username =
-                    jwtService.extractUsername(
-                            token);
+        if (authHeader != null && authHeader.startsWith("Bearer ")) {
 
-            UsernamePasswordAuthenticationToken
-                    authentication =
+            String token = authHeader.substring(7);
+
+            String username = jwtService.extractUsername(token);
+
+            UsernamePasswordAuthenticationToken auth =
                     new UsernamePasswordAuthenticationToken(
                             username,
                             null,
-                            List.of());
+                            new ArrayList<>()
+                    );
 
-            SecurityContextHolder
-                    .getContext()
-                    .setAuthentication(
-                            authentication);
+            SecurityContextHolder.getContext().setAuthentication(
+                    new UsernamePasswordAuthenticationToken(
+                            username,
+                            null,
+                            new ArrayList<>()));
+            SecurityContextHolder.getContext().setAuthentication(auth);
         }
+            filterChain.doFilter(
+                    request,
+                    response);
 
-        filterChain.doFilter(
-                request,
-                response);
+
     }
-
 }

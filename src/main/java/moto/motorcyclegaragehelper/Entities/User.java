@@ -2,6 +2,8 @@ package moto.motorcyclegaragehelper.Entities;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "user")
 public class User {
@@ -18,6 +20,9 @@ public class User {
 
     @Column
     private String email;
+
+    @OneToMany(mappedBy = "user")
+    private List<Motorcycle> motorcycles;
 
     public User() {}
 
