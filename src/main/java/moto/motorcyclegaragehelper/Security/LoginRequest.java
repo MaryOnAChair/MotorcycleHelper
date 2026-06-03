@@ -1,5 +1,8 @@
 package moto.motorcyclegaragehelper.Security;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class LoginRequest {
 
     private String username;

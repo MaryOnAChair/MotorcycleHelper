@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
 import {FormsModule} from '@angular/forms';
 import {User} from '../../models/user';
@@ -7,33 +7,41 @@ import {User} from '../../models/user';
 @Component({
   selector: 'app-login',
   imports: [
-    RouterLink,
-    FormsModule
-  ],
+    FormsModule],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
 
-  user: User = new User();
+  username: string = "";
+  password: string = "";
 
-  constructor(private auth: AuthService) {
+
+
+  constructor(private auth: AuthService,private router: Router) {
   }
 
+  login() {
 
-  protected readonly RouterLink = RouterLink;
+    this.auth.login(
+    this.username,
+    this.password)
+      .subscribe({
 
-  login(){
+        next: (token) => {
 
-    this.auth.login(this.user).subscribe({
-      next: (result:any) => {
-        console.log(result);
-        this.auth.saveToken(result.token)
-        console.log("logged in works");
-      },
-      error: (error) => {
-        alert('incorrect credentials');
-      }
-    });
+          this.auth
+            .saveToken(token);
+
+          this.router.navigate(
+            ['/home']);
+        },
+
+        error: (err) => {
+          console.log(err);
+        }
+
+      });
   }
+
 }
