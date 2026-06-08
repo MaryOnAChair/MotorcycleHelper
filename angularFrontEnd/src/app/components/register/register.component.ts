@@ -19,7 +19,7 @@ export class RegisterComponent {
   constructor(private auth: AuthService) {
   }
   register() {
-
+    localStorage.removeItem('token');
     console.log(this.user);
     this.auth.register(this.user).subscribe({
       next: ()=>{

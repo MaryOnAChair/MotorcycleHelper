@@ -15,10 +15,10 @@ import java.util.Date;
 
 @Service
 public class JwUtil {
+
     private final String SECRET =
             "mySuperSecretJwtKeyThatIsAtLeast32CharactersLongForHS256AndSpringBoot";
     public String generateToken(String username) {
-
         return Jwts.builder()
                 .setSubject(username)
                 .setIssuedAt(new Date())

@@ -28,6 +28,7 @@ export class AuthService {
   }
 
 
+
   register(user:User){
     return this.http.post(`${this.apiUrl}/register`,user);
   }
