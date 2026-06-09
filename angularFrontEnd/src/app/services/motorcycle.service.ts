@@ -9,7 +9,7 @@ import {Motorcycle} from '../models/motorcycle';
 export class MotorcycleService {
 
   private apiUrl =     'http://localhost:8080/api/motorcycle';
-
+  private motoId: number = 0;
 
 
 
@@ -40,6 +40,14 @@ export class MotorcycleService {
 
   }
 
+  getMotorcycle(id: string | null){
+    return this.http.get<Motorcycle>(`${this.apiUrl}/${id}`);
+  }
+
+
+  updateMotorcycle(moto:Motorcycle){
+    return this.http.put(`${this.apiUrl}/${moto.moto_id}`, moto);
+  }
 
 
 }

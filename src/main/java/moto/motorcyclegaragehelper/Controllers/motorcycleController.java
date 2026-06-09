@@ -41,6 +41,8 @@ public class motorcycleController {
 
     }
 
+
+
     @PostMapping
     public Motorcycle createMotorcycle(@RequestBody Motorcycle motorcycle,Authentication authentication) {
        System.out.println(authentication.getName());
@@ -65,5 +67,21 @@ public class motorcycleController {
         motorcycleService.deleteMotorcycle(moto_id);
         return null;
     }
+
+    @PutMapping("/{moto_id}")
+    public Motorcycle updateMotorcycle(
+            @PathVariable Long moto_id,
+            @RequestBody Motorcycle updated,Authentication authentication
+    ){
+        Motorcycle motorcycle = motorcycleRepository.findById(moto_id)
+                .orElseThrow();
+
+        motorcycle.setModel(updated.getModel());
+        motorcycle.setModel(updated.getModel());
+        motorcycle.setYear(updated.getYear());
+
+        return motorcycleRepository.save(motorcycle);
+    }
+
 
 }

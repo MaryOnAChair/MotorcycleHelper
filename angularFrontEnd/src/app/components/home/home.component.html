@@ -1,8 +1,9 @@
-<html class="page" >
-<h1 class="title" xmlns:th="http://www.w3.org/1999/xhtml">My Virtual Garage</h1>
-
+<body>
+<div class="page" >
 
 <div class="AddBikeForm">
+  <h1 class="title" >My Virtual Garage</h1>
+
   <h2>Add a Motorcycle</h2>
 
 
@@ -20,7 +21,14 @@
   <h3>{{bike.brand}}
       {{bike.model}}</h3>
   <h4>{{bike.year}}</h4>
+  <button [routerLink]="['/edit', bike.moto_id]">Edit</button>
   <button class="deleteButton" (click)="deleteMotorcycle(bike.moto_id)">Delete</button>
 </div>
 </div>
-</html>
+
+
+
+
+
+</div>
+</body>
