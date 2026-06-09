@@ -1,7 +1,9 @@
-<p>login works!</p>
+<body>
+<div class="page">
 
-<div>
-  <h1>The Garage</h1>
+<div class="loginForm">
+  <h1 class="title">My Virtual Garage</h1>
+
   <h2>Login</h2>
 
   <input
@@ -10,16 +12,20 @@
     [(ngModel)]="username"
     placeholder="Username"
   />
-
+<br>
   <input
     type="text"
     name="password"
     [(ngModel)]="password"
     placeholder="Password"
   />
-
+<br>
   <button (click)="login()">
     Login
   </button>
-
+  <br>
+  <h3>Don't have an account?</h3>
+  <a class="registerButton" routerLink="/register">Create One</a>
 </div>
+</div>
+</body>

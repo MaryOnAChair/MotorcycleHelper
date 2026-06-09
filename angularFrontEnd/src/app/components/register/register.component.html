@@ -1,7 +1,9 @@
-<p>register works!</p>
-<div>
+<body>
+<div class="page">
+  <div class="registerForm">
+    <h1 class="title">My Virtual Garage</h1>
 
-  <h2>Register</h2>
+  <h2 >Register</h2>
 
   <input
     type="text"
@@ -9,22 +11,27 @@
     [(ngModel)]="user.username"
     placeholder="Username"
   />
+<br>
   <input
     type="text"
     name="email"
     [(ngModel)]="user.email"
     placeholder="Email"
   />
-
+<br>
   <input
     type="text"
     name="password"
     [(ngModel)]="user.password"
     placeholder="Password"
   />
-
+<br>
   <button (click)="register()">
     Create Account
   </button>
+    <h3>Already have an account?</h3>
+    <a class="loginButton" routerLink="/login">Log In</a>
+</div>
 
 </div>
+</body>

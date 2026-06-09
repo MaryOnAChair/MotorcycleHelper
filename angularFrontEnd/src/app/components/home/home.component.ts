@@ -2,23 +2,29 @@ import {Component, OnInit} from '@angular/core';
 import {NavbarComponent} from '../navbar/navbar.component';
 import {HttpClient} from '@angular/common/http';
 import {FormControl, FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 
 import {MotorcycleService} from '../../services/motorcycle.service';
 import {Motorcycle} from '../../models/motorcycle';
-import {RouterLink} from '@angular/router';
+import {Router, RouterLink} from '@angular/router';
 
 @Component({
   selector: 'app-home',
   imports: [
     FormsModule,
     NgForOf,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgIf,
+    RouterLink,
+    NavbarComponent
+
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
 export class HomeComponent implements OnInit {
+
+
   motorcycles: Motorcycle[] = [];
   motorcycle: Motorcycle = {
     color: '', last_oil_change_date: '', moto_id: 0,
@@ -30,7 +36,8 @@ export class HomeComponent implements OnInit {
     year: 2023
   };
 
-  constructor(private http: HttpClient, private MotorcycleService: MotorcycleService) {
+
+  constructor(private http: HttpClient, private MotorcycleService: MotorcycleService,private router: Router) {
   }
 
   ngOnInit(): void{
@@ -69,5 +76,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  editMotorcycle() {
+    this.router.navigate(['/editMotorcycle']);
+  }
 
+  protected readonly RouterLink = RouterLink;
 }
