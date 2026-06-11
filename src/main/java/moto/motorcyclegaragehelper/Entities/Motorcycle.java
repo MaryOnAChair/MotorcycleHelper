@@ -62,7 +62,7 @@ public class Motorcycle {
     }
 
     public void setBrand(String brand) {
-        brand = brand;
+        this.brand = brand;
     }
 
     public String getModel() {
@@ -70,7 +70,8 @@ public class Motorcycle {
     }
 
     public void setModel(String model) {
-        model = model;
+
+       this.model = model;
     }
 
     public String getColor() {
@@ -78,7 +79,7 @@ public class Motorcycle {
     }
 
     public void setColor(String color) {
-        color = color;
+        this.color = color;
     }
 
     public void motorcycle(){

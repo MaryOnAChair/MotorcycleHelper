@@ -30,6 +30,7 @@ export class AuthService {
 
 
   register(user:User){
+    localStorage.clear();
     return this.http.post(`${this.apiUrl}/register`,user);
   }
 

@@ -45,8 +45,8 @@ export class MotorcycleService {
   }
 
 
-  updateMotorcycle(moto:Motorcycle){
-    return this.http.put(`${this.apiUrl}/${moto.moto_id}`, moto);
+  updateMotorcycle(id:number,moto:Motorcycle):Observable<Motorcycle> {
+    return this.http.put<Motorcycle>(`${this.apiUrl}/${moto.moto_id}`, moto);
   }
 
 

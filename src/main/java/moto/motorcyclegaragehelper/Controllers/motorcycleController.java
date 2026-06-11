@@ -73,10 +73,14 @@ public class motorcycleController {
             @PathVariable Long moto_id,
             @RequestBody Motorcycle updated,Authentication authentication
     ){
+        System.out.println(updated.getModel());
+        System.out.println(updated.getBrand());
+        System.out.println(updated.getYear());
+
         Motorcycle motorcycle = motorcycleRepository.findById(moto_id)
                 .orElseThrow();
 
-        motorcycle.setModel(updated.getModel());
+        motorcycle.setBrand(updated.getBrand());
         motorcycle.setModel(updated.getModel());
         motorcycle.setYear(updated.getYear());
 
