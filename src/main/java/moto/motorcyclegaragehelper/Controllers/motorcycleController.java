@@ -83,6 +83,9 @@ public class motorcycleController {
         motorcycle.setBrand(updated.getBrand());
         motorcycle.setModel(updated.getModel());
         motorcycle.setYear(updated.getYear());
+        motorcycle.setVin(updated.getVin());
+        motorcycle.setColor(updated.getColor());
+        motorcycle.setOdometer(updated.getOdometer());
 
         return motorcycleRepository.save(motorcycle);
     }

@@ -14,9 +14,8 @@ import {Router, RouterLink} from '@angular/router';
     FormsModule,
     NgForOf,
     ReactiveFormsModule,
-    NgIf,
     RouterLink,
-    NavbarComponent
+
 
   ],
   templateUrl: './home.component.html',
@@ -27,13 +26,14 @@ export class HomeComponent implements OnInit {
 
   motorcycles: Motorcycle[] = [];
   motorcycle: Motorcycle = {
-    color: '', last_oil_change_date: '', moto_id: 0,
+    color: '', vin: 0, moto_id: 0,
 
     brand: '',
 
     model: '',
 
-    year: 2023
+    year: 2023,
+    odometer: 0,
   };
 
 

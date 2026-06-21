@@ -5,6 +5,7 @@ export class Motorcycle {
   color!: string;
   model!: string;
   year!: number;
-  last_oil_change_date!:string;
+  vin!:number;
+  odometer!: number;
 
 }
