@@ -1,4 +1,3 @@
-<body>
 <div class="page">
   <div class="registerForm">
     <h1 class="title">My Virtual Garage</h1>
@@ -11,7 +10,7 @@
     [(ngModel)]="user.username"
     placeholder="Username"
   />
-<br>
+
   <input
     type="text"
     name="email"
@@ -25,13 +24,14 @@
     [(ngModel)]="user.password"
     placeholder="Password"
   />
-<br>
+
   <button (click)="register()">
     Create Account
   </button>
+
     <h3>Already have an account?</h3>
+    <br>
     <a class="loginButton" routerLink="/login">Log In</a>
 </div>
 
 </div>
-</body>

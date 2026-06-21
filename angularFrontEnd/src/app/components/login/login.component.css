@@ -11,7 +11,8 @@ body{
   color: black;
 
   height: 100vh;
-  background-image: url("/background2.png");
+  background-image: url("/motoBackground.jpg");
+  background-size: cover;
 }
 
 .title{
@@ -36,7 +37,9 @@ body{
 .loginForm input {
   margin-bottom: 10px;
 }
-
+h3{
+  margin: 15px auto;
+}
 .registerButton {
 
   padding: 10px;
