@@ -1,4 +1,6 @@
-<nav class="nav">
+<nav *ngIf="checkLogin()
+" class="nav">
   <a routerLink="/home">Home</a>
   <a routerLink="/about">About</a>
+  <button (click)="logOut()"> Log Out</button>
 </nav>
