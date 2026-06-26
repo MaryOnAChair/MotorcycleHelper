@@ -8,27 +8,32 @@
   margin: 0;
   padding: 0;
   background-size: cover;
-  background: linear-gradient(135deg, #1a0033, #330066, #ff00cc);
+  background: linear-gradient(135deg, #1a0033, #6829a6, #ffb1f5);
 
 }
 
 .about-container{
   text-align: center;
   padding: 30px;
-  display: grid;
-  grid-template-columns:2fr 1fr;
+  display: flex;
+  max-width: 3000px;
+  grid-template-columns:2fr auto 1fr;
+  margin: auto;
+  align-items: center;
+  gap: 30px;
 
 }
 .title{
   text-align: center;
   font-size: 70px;
-  letter-spacing: 5px;
+  letter-spacing: 8px;
   color: #fff;
   text-shadow:
     0 0 5px #ff00ff,
     0 0 15px #00ffff,
     0 0 30px #ff00ff;
   padding: 0;
+  text-decoration:underline;
   margin: 0;
 }
 
@@ -43,7 +48,7 @@
   opacity: 0.8;
   margin-bottom: 30px;
 }
-.right{
+.left{
   background: rgba(5,5,25,.9);
   align-content: center;
   border-radius: 25px;
@@ -83,15 +88,38 @@
 .nav-links ul li {
   padding: 10px 0;
 }
-.left{
+.right{
   display: grid;
   grid-template-columns:repeat(2, 1fr);
   gap: 25px;
-}
+  width: 100%;
+  min-width: 0;
 
+}
+.middle{
+  border-radius: 25px;
+  height: 90%;
+  border: 2px solid #ff00ff;
+  align-self: center;
+  text-align: center;
+  float: left;
+  box-shadow:
+    0 0 15px #ff00ff,
+    0 0 40px rgba(255,0,255,.4);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 40%;
+  padding: 30px;
+  line-height: 3;
+}
+.middle h4{
+  text-decoration-line: underline;
+}
 .grid {
   display: grid;
-  grid-template-columns: 2fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 20px;
   align-items: center;
 }
@@ -121,8 +149,20 @@
   padding: 50px;
 
 }
+.card-content h3 {
+  text-align: center;
+  font-size: 30px;
+  text-shadow:
+    0 0 5px #000000,
+    0 0 15px #000000,
+    0 0 30px #ffffff;
+}
 .card a{
-  color: #00ffff;
+  color: #01efdb;
+  text-shadow:
+    0 0 5px #000000,
+    0 0 15px #000000,
+    0 0 30px #ffffff;
   margin: 0 15px;
   text-decoration: underline;
   font-size: 18px;
@@ -149,3 +189,22 @@
 
 }
 
+#yamaha{
+  background: linear-gradient(135deg, #9bc9ff, #01549c, #0002ff);
+}
+#honda{
+  background: linear-gradient(135deg, #f67373, #5c1212, #ff0000);
+}
+#suzuki{
+  background: linear-gradient(135deg, #ffdd00, #2c79df, #ff0000);
+
+}
+#kawasaki{
+  background: linear-gradient(135deg, #a8ffac, #1d8128, #00ea20);
+}
+#ducati{
+  background: linear-gradient(135deg, #ffffff, #CB1517, #ffffff);
+}
+#triumph{
+  background: linear-gradient(135deg, #0021ff, #ffffff, #ff0000);
+}
