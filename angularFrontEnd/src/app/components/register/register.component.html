@@ -9,25 +9,46 @@
     name="username"
     [(ngModel)]="user.username"
     placeholder="Username"
+    required
   />
 
   <input
-    type="text"
+    type="email"
     name="email"
     [(ngModel)]="user.email"
+    #email="ngModel"
     placeholder="Email"
+    required
+    email
   />
 <br>
   <input
-    type="text"
+    type="password"
     name="password"
     [(ngModel)]="user.password"
+    #password="ngModel"
     placeholder="Password"
-  />
+    pattern="^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$"
+    required
 
-  <button (click)="register()">
+  />
+    <div  class="errorBox" *ngIf="email.invalid && email.touched">
+      <h4>Please enter a valid email</h4>
+    </div>
+    <div class="errorBox" *ngIf="password.invalid && password.touched">
+      <h4>Password must contain:</h4>
+      <ul>
+        <li>8 or more characters</li>
+        <li>One upper and lowercase letter,</li>
+          <li>a number & a special character</li>
+      </ul>
+    </div>
+    <div *ngIf="password.valid  && email.valid ">
+
+    <button (click)="register()">
     Create Account
   </button>
+    </div>
 
     <h3>Already have an account?</h3>
     <br>

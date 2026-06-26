@@ -35,15 +35,15 @@ public class AuthController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@RequestBody RegisterRequest rr){
+    public ResponseEntity<Object> register(@RequestBody RegisterRequest rr){
         User user = new User();
         user.setUsername(rr.getUsername());
         user.setPassword(passwordEncoder.encode(rr.getPassword()));
         user.setEmail(rr.getEmail());
 
         userRepository.save(user);
-        return ResponseEntity.ok("successfully registered <3");
-    }
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(Map.of("message", "registered successfully"));    }
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest){
