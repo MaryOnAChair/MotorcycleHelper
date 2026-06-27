@@ -1,0 +1,216 @@
+<div class="page">
+<div class="bothForms">
+
+<div class="editForm" *ngIf="motorcycle.moto_id!= null">
+<div class="col">
+  <h2>Edit</h2>
+
+  <label>Make</label>
+  <input type="text" [(ngModel)]="motorcycle.brand"
+  name="brand">
+
+  <label>Model</label>
+  <input type="text"  [(ngModel)]="motorcycle.model"
+  name="model">
+
+  <label>Year</label>
+  <input type="number" [(ngModel)]="motorcycle.year"
+  name="year">
+
+  <label>Color</label>
+  <input type="text" [(ngModel)]="motorcycle.color"
+         name="color">
+
+  <label>VIN</label>
+  <input type="number" [(ngModel)]="motorcycle.vin"
+         name="vin">
+  <label>Odometer</label>
+  <input type="number" [(ngModel)]="motorcycle.odometer"
+         name="odometer">
+
+
+
+
+  <br><br>
+
+  <button id="updateButton" (click)="update()">
+    Save
+  </button>
+
+  <button id="cancelButton" (click)="cancel()">
+    Cancel
+  </button>
+</div>
+</div>
+
+  <div class="col">
+<div id='pdf' class="printForm">
+  <h2>Customer Receipt Form</h2>
+
+
+    <div class="top-section">
+
+      <div class="from-section">
+        <h3>Customer Contact Info</h3>
+
+        <label>Name</label>
+        <input type="text">
+        <label>Phone</label>
+        <input type="text">
+<br>
+        <label>Address</label>
+        <input type="text">
+        <label>City</label>
+        <input type="text">
+<br>
+        <label>State</label>
+        <input size="2" type="text">
+         <label>Zip</label>
+        <input size="5" type="number">
+
+      </div>
+    </div>
+
+    <div class="details-section">
+      <h3>Details</h3>
+      <div class="details-grid">
+        <div>
+          <label>Receipt Date</label>
+          <input type="date">
+        </div>
+
+        <div>
+          <label>Receipt #</label>
+          <input type="text">
+        </div>
+
+        <div>
+          <label>Payment Date</label>
+          <input type="date">
+        </div>
+
+        <div>
+          <label>Payment Method</label>
+          <input type="text">
+        </div>
+      </div>
+
+    </div>
+
+    <div class="motorcycle-section">
+
+      <h3>Motorcycle Information</h3>
+
+      <div class="motorcycle-grid">
+
+        <div>
+          <label>Brand</label>
+          <input type="text" [(ngModel)]="motorcycle.brand" name="brand">
+        </div>
+
+        <div>
+          <label>Model</label>
+          <input type="text" [(ngModel)]="motorcycle.model" name="model">
+        </div>
+
+        <div>
+          <label>Year</label>
+          <input type="number" [(ngModel)]="motorcycle.year" name="year">
+        </div>
+
+        <div>
+          <label>VIN</label>
+          <input type="number" [(ngModel)]="motorcycle.vin" name="vin">
+        </div>
+
+        <div>
+          <label>Odometer</label>
+          <input type="number" [(ngModel)] = "motorcycle.odometer" name="odometer">
+        </div>
+
+        <div>
+          <label>Color</label>
+          <input type="text" [(ngModel)]="motorcycle.color" name="color">
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="items-section">
+
+      <h3>Work Completed</h3>
+
+      <table>
+        <thead>
+        <tr>
+          <th>Description</th>
+          <th>Quantity</th>
+          <th>Price</th>
+        </tr>
+        </thead>
+
+        <tbody>
+
+        <tr>
+          <td><input type="text"></td>
+          <td><input type="number"></td>
+          <td><input type="number"></td>
+        </tr>
+
+        <tr>
+          <td><input type="text"></td>
+          <td><input type="number"></td>
+          <td><input type="number"></td>
+        </tr>
+
+        <tr>
+          <td><input type="text"></td>
+          <td><input type="number"></td>
+          <td><input type="number"></td>
+        </tr>
+
+        </tbody>
+      </table>
+
+    </div>
+
+    <div class="bottom-section">
+
+      <div class="notes">
+        <h3>Notes</h3>
+        <textarea rows="8"></textarea>
+      </div>
+
+      <div class="totals">
+
+        <label>Labor</label>
+        <input type="number">
+
+        <label>Parts</label>
+        <input type="number">
+
+
+        <label>Tax</label>
+        <input type="number">
+<br>
+        <label>Total Due</label>
+        <input type="number">
+
+        <label>Amount Paid</label>
+        <input type="number">
+
+      </div>
+
+    </div>
+
+    <button class="generateButton" (click)="generatePdf()" >
+      Generate Receipt
+    </button>
+
+  </div>
+
+</div>
+  </div>
+
+</div>
