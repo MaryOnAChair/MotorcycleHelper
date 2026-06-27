@@ -7,7 +7,8 @@ import {NgForOf, NgIf} from '@angular/common';
 import {MotorcycleService} from '../../services/motorcycle.service';
 import {Motorcycle} from '../../models/motorcycle';
 import {Router, RouterLink} from '@angular/router';
-
+import {AuthService} from '../../services/auth.service';
+import {from} from 'rxjs';
 @Component({
   selector: 'app-home',
   imports: [
@@ -37,7 +38,8 @@ export class HomeComponent implements OnInit {
   };
 
 
-  constructor(private http: HttpClient, private MotorcycleService: MotorcycleService,private router: Router) {
+  constructor(private http: HttpClient, private MotorcycleService: MotorcycleService,private router: Router,
+              private authService: AuthService) {
   }
 
   ngOnInit(): void{
@@ -68,6 +70,9 @@ export class HomeComponent implements OnInit {
   }
 
   deleteMotorcycle(moto_id: number) {
+    const confirmed = confirm("Are you sure you want to delete this motorcycle? :(");
+    if (!confirmed) { return}
+
     this.MotorcycleService.deleteMotorcycle(moto_id).subscribe({
       next: () => {
         this.motorcycles = this.motorcycles.filter(motorcycle => motorcycle.moto_id !== moto_id);
@@ -80,5 +85,6 @@ export class HomeComponent implements OnInit {
     this.router.navigate(['/editMotorcycle']);
   }
 
-  protected readonly RouterLink = RouterLink;
+
+
 }
