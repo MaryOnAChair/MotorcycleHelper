@@ -1,10 +1,13 @@
 .nav {
-  background-color: #000;
   overflow: hidden;
   padding: 0;
   margin: 0;
 
+  background: linear-gradient(90deg, #ff71ce, #01cdfe, #05ffa1);
+  font-family: "Comic Sans MS", cursive;
+
 }
+
 
 .nav a{
   float: left;
@@ -12,19 +15,20 @@
   font-size: 16px;
   text-decoration: none;
 
-  border: 2px solid #ff00ff;
-  color: #ff00ff;
+  color: #ffffff;
   border-radius: 12px;
   cursor: pointer;
+  background: #122b6a;
 
-  box-shadow:
-    0 0 10px #ff00ff,
-    0 0 20px rgba(255,0,255,.5);
   padding: 20px 16px;
   margin: 5px 10px;
 }
 .nav a:hover{
-  background-color: #01efdb;
+  background-color: rgb(93, 142, 69);
+  color: #000000;
+  box-shadow:
+    0 0 10px #01efdb,
+    0 0 20px rgb(191, 255, 174);
 }
 
 .nav button{
@@ -32,10 +36,8 @@
   color: #ffffff;
   border-radius: 12px;
   cursor: pointer;
-background-color: #01efdb;
-  box-shadow:
-    0 0 10px #ff00ff,
-    0 0 20px rgba(255,0,255,.5);
+  background-color: #061d51;
+
   padding: 10px 16px;
   float: left;
   transition: .3s;
@@ -46,5 +48,37 @@ background-color: #01efdb;
 
 .nav button:hover{
   background-color: #ba5050;
-  color: #000000;
+  color: #000000;  box-shadow:
+  0 0 10px #ff00ff,
+  0 0 20px rgba(255,0,255,.5);
+
 }
+
+.vroom {
+  position: absolute;
+  top: 9px;
+  width: 5%;
+  animation:  slide 4s infinite ease-in-out ;
+  transform: scaleX(-1);
+  animation-delay: .5s;
+  left: 15%;
+}
+.vroom2 {
+  position: absolute;
+  width: 5%;
+  animation: slide 4s infinite ease-in-out  ;
+  transform: scaleX(-1);
+  left: 15%;
+}
+
+
+@keyframes slide {
+
+  from{left:15%;}
+ to{left:calc(100% - 10px);
+   transform: scaleX(-1);
+  }
+
+}
+
+
