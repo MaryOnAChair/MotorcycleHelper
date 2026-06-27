@@ -170,6 +170,7 @@
   font-weight: bold;
 }
 .photos{
+
   display: grid;
   grid-template-columns: 2fr 1fr;
   align-items: center;
@@ -179,6 +180,7 @@
   padding: 10px;
 }
 .photos img{
+
   height: 80%;
   width: 80%;
   object-fit: cover;
@@ -188,6 +190,7 @@
   transition: transform 0.3s;
 
 }
+
 
 #yamaha{
   background: linear-gradient(135deg, #9bc9ff, #01549c, #0002ff);

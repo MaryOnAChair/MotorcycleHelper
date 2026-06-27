@@ -18,23 +18,29 @@
   display: block;
 }
 .registerForm {
-  border: 3px solid rgba(46, 56, 58, 0.49);
   background-color: rgba(210, 248, 255, 0.61);
   box-shadow: 10px 10px 4px rgba(36, 46, 16, 0.69);
-
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 20px;
   align-items: center;
   align-content: center;
   margin: 0 auto;
   display: block;
   width: 40%;
   height: auto;
-  padding: 20px;
+  padding: 40px;
   text-align: center;
 }
 
 .registerForm input {
   margin-bottom: 10px;
   text-align: center;
+
+  border: 2px solid rgba(1, 205, 254, 0.6);
+  border-radius: 12px;
+  padding: 12px 16px;
 }
 
 
@@ -43,11 +49,13 @@
 .loginButton {
   padding: 10px;
   border: 3px solid rgba(46, 56, 58, 0.49);
-  background-color: rgba(210, 248, 255, 0.61);
-  box-shadow: 10px 10px 4px rgba(36, 46, 16, 0.69);
   align-items: center;
   align-content: center;
-
+  border-radius: 12px;
+  background: linear-gradient(135deg, #0144ef, #01efdb);
+  font-weight: bold;
+  color: black;
+  box-shadow: 10px 10px 4px rgba(36, 46, 16, 0.69);
 }
 
 .errorBox{
@@ -65,4 +73,38 @@
 
  ul {
   list-style-type: none;
+}
+
+ .registerButton{
+   padding: 10px;
+   border: 2px solid #01cdfe;
+   border-radius: 12px;
+   background: linear-gradient(135deg, #01efdb, #bffe01);
+   font-weight: bold;
+   color: black;
+   box-shadow: 10px 10px 4px rgba(36, 46, 16, 0.69);
+   align-items: center;
+   align-content: center;
+ }
+.registerButton:hover{
+  background-color: #01cdfe;
+  color: white;
+  box-shadow:
+    0 0 20px #ff71ce,
+    0 0 40px #01cdfe,
+    0 0 60px #05ffa1;
+
+  filter: brightness(1.2);
+  cursor: pointer;
+
+}
+.loginButton:hover{
+  background: linear-gradient(135deg, #268c70, #125e26);
+  color: white;
+  box-shadow:
+    0 0 20px #84ff71,
+    0 0 40px #01cdfe,
+    0 0 60px #2b7c5f;
+
+  filter: brightness(1.2);
 }
