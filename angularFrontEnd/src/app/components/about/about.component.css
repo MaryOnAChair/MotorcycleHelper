@@ -8,11 +8,12 @@
   margin: 0;
   padding: 0;
   background-size: cover;
-  background: linear-gradient(135deg, #1a0033, #6829a6, #ffb1f5);
+  background-image: url("/nightImage.jpg");
 
 }
 
 .about-container{
+
   text-align: center;
   padding: 30px;
   display: flex;
@@ -49,7 +50,9 @@
   margin-bottom: 30px;
 }
 .left{
-  background: rgba(5,5,25,.9);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background: rgba(20, 20, 94, 0.48);
   align-content: center;
   border-radius: 25px;
 
@@ -89,6 +92,7 @@
   padding: 10px 0;
 }
 .right{
+
   display: grid;
   grid-template-columns:repeat(2, 1fr);
   gap: 25px;
@@ -97,6 +101,9 @@
 
 }
 .middle{
+  background-color: rgba(73, 117, 166, 0.51);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(5px);
   border-radius: 25px;
   height: 90%;
   border: 2px solid #ff00ff;
@@ -135,7 +142,7 @@
 }
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 15px 15px rgba(0,255,255,0.3);
+  box-shadow: 0 15px 15px rgba(255, 255, 255, 0.63);
   background: rgba(111, 35, 161, 0.63);
 
 }
@@ -193,21 +200,21 @@
 
 
 #yamaha{
-  background: linear-gradient(135deg, #9bc9ff, #01549c, #0002ff);
+  background: linear-gradient(135deg, #9bc9ff, rgba(1, 84, 156, 0.84), rgba(0, 2, 255, 0.77));
 }
 #honda{
-  background: linear-gradient(135deg, #f67373, #5c1212, #ff0000);
+  background: linear-gradient(135deg, #f67373, rgba(92, 18, 18, 0.84), rgba(255, 0, 0, 0.82));
 }
 #suzuki{
-  background: linear-gradient(135deg, #ffdd00, #2c79df, #ff0000);
+  background: linear-gradient(135deg, #ffdd00, rgba(44, 121, 223, 0.85), rgba(255, 0, 0, 0.89));
 
 }
 #kawasaki{
-  background: linear-gradient(135deg, #a8ffac, #1d8128, #00ea20);
+  background: linear-gradient(135deg, #a8ffac, rgba(29, 129, 40, 0.84), rgba(0, 234, 32, 0.89));
 }
 #ducati{
-  background: linear-gradient(135deg, #ffffff, #CB1517, #ffffff);
+  background: linear-gradient(135deg, #ffffff, rgba(203, 21, 23, 0.88), rgba(255, 255, 255, 0.88));
 }
 #triumph{
-  background: linear-gradient(135deg, #0021ff, #ffffff, #ff0000);
+  background: linear-gradient(135deg, #0021ff, rgba(255, 255, 255, 0.87), rgba(255, 0, 0, 0.86));
 }
