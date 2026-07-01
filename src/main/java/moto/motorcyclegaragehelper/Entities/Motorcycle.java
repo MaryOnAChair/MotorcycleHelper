@@ -2,6 +2,10 @@ package moto.motorcyclegaragehelper.Entities;
 
 import jakarta.persistence.*;
 
+/** This is an Entity class for motorcycles
+ * The class is used for storing data in its column
+ * Each column has its respective getters and setters*/
+
 @Entity
 @Table(name = "motorcycles")
 public class Motorcycle {
@@ -17,8 +21,10 @@ public class Motorcycle {
 
     @Column(name = "brand")
     private String brand;
+
     @Column(name = "model")
     private String model;
+
     @Column(name = "color")
     private String color;
 
@@ -39,6 +45,7 @@ public class Motorcycle {
         this.odometer = odometer;
     }
 
+    //Joins Motorcycles to one user
     @ManyToOne
     @JoinColumn(name="user_id")
     private User user;

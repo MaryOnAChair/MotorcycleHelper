@@ -6,6 +6,8 @@ import {Motorcycle} from '../../models/motorcycle';
 import {MotorcycleService} from '../../services/motorcycle.service';
 import {NavbarComponent} from '../navbar/navbar.component';
 import {Observable} from 'rxjs';
+/** This is the  Edit Component for Editing Motorcycle
+ * The class is used when editing motorcycles. */
 
 @Component({
   selector: 'app-edit',
@@ -29,12 +31,11 @@ export class EditComponent implements OnInit {
     odometer:0,
   };
 
-
   constructor(private route:ActivatedRoute, private motorcycleService:MotorcycleService,private router:Router) {
   }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('moto_id');
+    const id = this.route.snapshot.paramMap.get('moto_id'); //Gets current Bike to be edited
     console.log(id);
     this.motorcycleService.getMotorcycle(id).subscribe(data => {
       this.motorcycle = data;
@@ -44,10 +45,12 @@ export class EditComponent implements OnInit {
 
 
 
+  //Cancels Edit
    cancel():void {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/home']); //Goes back home
   }
 
+  //Updates Motorcycle
    update():void {
     console.log(this.motorcycle);
     this.motorcycleService.updateMotorcycle(this.motorcycle.moto_id,this.motorcycle).subscribe(data => {
@@ -56,6 +59,7 @@ export class EditComponent implements OnInit {
 
   }
 
+  //Generates PDF Receipt
   async generatePdf()
   {
 

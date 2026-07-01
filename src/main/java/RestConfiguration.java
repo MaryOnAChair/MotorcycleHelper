@@ -15,9 +15,9 @@ public class RestConfiguration implements RepositoryRestConfigurer {
     public void configureRepositoryRestConfiguration(
             RepositoryRestConfiguration config, CorsRegistry cors) {
                 config.exposeIdsFor(Motorcycle.class);
-                config.setBasePath("/api");
+                config.setBasePath("/api"); //Sets Api url
 
-                cors.addMapping("/api/**").allowedOrigins("*");
+                cors.addMapping("/api/**").allowedOrigins("*"); //Allows cross origins for api communication
     }
 
 

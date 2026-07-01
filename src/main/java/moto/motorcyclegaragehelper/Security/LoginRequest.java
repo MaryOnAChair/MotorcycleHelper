@@ -1,6 +1,9 @@
 package moto.motorcyclegaragehelper.Security;
 
 import org.springframework.stereotype.Component;
+/** This is a Component class for Login Requests
+ * The class is used for getting passwords and usernames entered during login
+ * This class is used in authentication requests*/
 
 @Component
 public class LoginRequest {

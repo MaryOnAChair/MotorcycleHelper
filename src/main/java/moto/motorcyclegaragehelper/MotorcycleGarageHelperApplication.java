@@ -8,8 +8,8 @@ public class MotorcycleGarageHelperApplication {
 
 
 
-
-    public static void main(String[] args) {
+//Runs Application
+    static void main(String[] args) {
         SpringApplication.run(MotorcycleGarageHelperApplication.class, args);
 
     }

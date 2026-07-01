@@ -9,6 +9,7 @@ import {NavbarComponent} from '../navbar/navbar.component';
   templateUrl: './about.component.html',
   styleUrl: './about.component.css'
 })
+//About Component//
 export class AboutComponent {
 
 }

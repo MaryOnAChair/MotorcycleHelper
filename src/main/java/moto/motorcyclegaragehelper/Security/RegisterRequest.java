@@ -1,5 +1,7 @@
 package moto.motorcyclegaragehelper.Security;
-
+/** This is a Component class for Registration Requests
+ * The class is used for getting passwords and usernames and emails entered during registration
+ * This class is used in authentication requests*/
 public class RegisterRequest
 {
     private String username;

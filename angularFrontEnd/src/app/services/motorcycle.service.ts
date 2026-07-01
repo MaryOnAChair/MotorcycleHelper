@@ -3,6 +3,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {Motorcycle} from '../models/motorcycle';
 
+/** This is the front end Motorcycle Service
+ * The class is used when adding/updating/deleting motorcycles. */
+
 @Injectable({
   providedIn: 'root'
 })
@@ -15,6 +18,7 @@ export class MotorcycleService {
 
   constructor( private http: HttpClient ) { }
 
+  //Gets all motorcycles
   getAllMotorcycles():
     Observable<Motorcycle[]> {
 
@@ -22,6 +26,8 @@ export class MotorcycleService {
       this.apiUrl
     );
   }
+
+  //Creates Motorcycle
   createMotorcycle(
     motorcycle: Motorcycle,
   ): Observable<Motorcycle> {
@@ -32,6 +38,7 @@ export class MotorcycleService {
     );
   }
 
+  //Deletes Motorcycle
   deleteMotorcycle(
     moto_id: number
   ): Observable<any> {
@@ -40,11 +47,12 @@ export class MotorcycleService {
 
   }
 
+  //Gets Motorcycle by ID
   getMotorcycle(id: string | null){
     return this.http.get<Motorcycle>(`${this.apiUrl}/${id}`);
   }
 
-
+//Updates motorcycle
   updateMotorcycle(id:number,moto:Motorcycle):Observable<Motorcycle> {
     return this.http.put<Motorcycle>(`${this.apiUrl}/${moto.moto_id}`, moto);
   }

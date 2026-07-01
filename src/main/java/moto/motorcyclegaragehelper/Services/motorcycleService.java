@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+// Interface class for motorcycle entity
 public interface motorcycleService {
 
     List<Motorcycle> getAllMotorcycles();

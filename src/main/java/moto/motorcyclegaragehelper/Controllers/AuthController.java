@@ -33,49 +33,52 @@ public class AuthController {
     @Autowired
     private userService userService;
 
+    /** This is a controller class for User Authentication
+     * The class is used when registering/logging in users. */
 
+
+    //Registering User
     @PostMapping("/register")
     public ResponseEntity<Object> register(@RequestBody RegisterRequest rr){
-        User user = new User();
-        user.setUsername(rr.getUsername());
-        user.setPassword(passwordEncoder.encode(rr.getPassword()));
-        user.setEmail(rr.getEmail());
+        User user = new User(); //Creates new user
+        user.setUsername(rr.getUsername()); //Sets username
+        user.setPassword(passwordEncoder.encode(rr.getPassword())); //Encodes password before saving
+        user.setEmail(rr.getEmail());   //Sets Email
 
-        userRepository.save(user);
+        userRepository.save(user);  //Saves User
         return ResponseEntity.status(HttpStatus.CREATED)
-                .body(Map.of("message", "registered successfully"));    }
+                .body(Map.of("message", "registered successfully"));
+    }
 
+    //Logging In User
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestBody LoginRequest loginRequest){
 
-        System.out.println("Username: " + loginRequest.getUsername());
-
+        //Looks for entered username
         User user = userRepository
                 .findByUsername(loginRequest.getUsername())
                 .orElse(null);
 
-        System.out.println("User found: " + user);
-
+        //Returns null if user not found
         if(user == null) {
             return ResponseEntity.badRequest()
                     .body("User not found");
         }
-
+        //Compares password entered with encoded password
         boolean matches =
                 passwordEncoder.matches(
                         loginRequest.getPassword(),
                         user.getPassword());
 
-        System.out.println("Password matches: " + matches);
-
+        //Returns bad password if passwords don't match
         if(!matches) {
             return ResponseEntity.badRequest()
                     .body("Bad password");
         }
+
+        //Generates token for log in session
         try {
             String token = jwUtil.generateToken(user.getUsername());
-
-            System.out.println("Generated token: " + token);
 
             return ResponseEntity.ok(token);
 

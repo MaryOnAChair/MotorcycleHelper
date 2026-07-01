@@ -9,6 +9,10 @@ import {Motorcycle} from '../../models/motorcycle';
 import {Router, RouterLink} from '@angular/router';
 import {AuthService} from '../../services/auth.service';
 import {from} from 'rxjs';
+
+/** This is the  Home Component for the Home Page
+ * The class is used when adding and deleting motorcycled. */
+
 @Component({
   selector: 'app-home',
   imports: [
@@ -42,10 +46,12 @@ export class HomeComponent implements OnInit {
               private authService: AuthService) {
   }
 
+
   ngOnInit(): void{
     this.loadMotorcycles();
   }
 
+  //Loads Motorcycles on Homepage
   loadMotorcycles(): void {
 
     this.MotorcycleService
@@ -56,9 +62,7 @@ export class HomeComponent implements OnInit {
       });
   }
 
-
-
-
+//Adds Motorcycle
   addMotorcycle(): void {
     this.MotorcycleService
       .createMotorcycle(this.motorcycle)
@@ -69,8 +73,9 @@ export class HomeComponent implements OnInit {
       });
   }
 
+  //Deletes Motorcycle
   deleteMotorcycle(moto_id: number) {
-    const confirmed = confirm("Are you sure you want to delete this motorcycle? :(");
+    const confirmed = confirm("Are you sure you want to delete this motorcycle? :("); //Checks before deleting
     if (!confirmed) { return}
 
     this.MotorcycleService.deleteMotorcycle(moto_id).subscribe({
@@ -81,8 +86,9 @@ export class HomeComponent implements OnInit {
     });
   }
 
+  //Edit Motorcycle
   editMotorcycle() {
-    this.router.navigate(['/editMotorcycle']);
+    this.router.navigate(['/editMotorcycle']); //Goes to edit page
   }
 
 

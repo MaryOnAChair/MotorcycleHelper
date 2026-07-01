@@ -3,6 +3,9 @@ package moto.motorcyclegaragehelper.Entities;
 import jakarta.persistence.*;
 
 import java.util.List;
+/** This is an Entity class for Users
+ * The class is used for storing data in its column
+ * Each column has its respective getters and setters*/
 
 @Entity
 @Table(name = "user")
@@ -21,6 +24,7 @@ public class User {
     @Column
     private String email;
 
+    //Joins One user to Motorcycles
     @OneToMany(mappedBy = "user")
     private List<Motorcycle> motorcycles;
 

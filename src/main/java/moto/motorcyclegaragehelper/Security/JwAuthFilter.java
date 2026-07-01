@@ -13,11 +13,15 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+/** This is a Component class for Authentication
+ * The class is used for verifying a user is allowed to access resources
+ * This class processes authentication requests*/
 
 @Component
 public class JwAuthFilter extends OncePerRequestFilter {
 
 
+    //Injects service
     @Autowired
     private JwUtil jwtService;
 

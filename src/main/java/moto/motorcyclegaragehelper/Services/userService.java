@@ -10,9 +10,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Map;
+// Interface class for user entity
 
 @Service
 public class userService {
+    //Injects user repository
     @Autowired
     private UserRepository userRepository;
 
