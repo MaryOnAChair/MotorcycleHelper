@@ -1,8 +1,8 @@
-FROM node:lts-slim AS build
+FROM node:20-slim AS build
 WORKDIR /app
 
 COPY package*.json ./
-RUN npm ci
+RUN npm ci --include=dev
 
 COPY . .
 RUN npm run build -- --configuration=production
