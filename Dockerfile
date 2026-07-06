@@ -5,8 +5,7 @@ COPY mvnw .
 COPY .mvn/ .mvn/
 COPY pom.xml .
 COPY src ./src
-RUN ./mvnw clean package -DskipTests
-
+RUN chmod +x mvnw && ./mvnw clean package -DskipTests
 # Runtime Stage
 FROM eclipse-temurin:26-jre-jammy AS runtime
 RUN apt-get update && apt-get install -y curl && rm -rf /var/lib/apt/lists/*
