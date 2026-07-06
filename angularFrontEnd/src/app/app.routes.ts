@@ -4,6 +4,7 @@ import {HomeComponent} from './components/home/home.component';
 import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {EditComponent} from './components/edit/edit.component';
+import {RenderMode} from '@angular/ssr';
 
 
 export const routes: Routes = [
@@ -12,5 +13,5 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent },
   {path: 'register', component: RegisterComponent },
-  {path:'edit/:moto_id', component : EditComponent},
+  {path:'edit/:moto_id', component : EditComponent}
 ];

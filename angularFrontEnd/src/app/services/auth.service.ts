@@ -12,7 +12,7 @@ import {Inject,PLATFORM_ID} from '@angular/core';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8080/auth';
+  private apiUrl = '/auth';
 
   constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId:Object) { }
 

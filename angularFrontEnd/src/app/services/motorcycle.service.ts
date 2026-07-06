@@ -11,7 +11,7 @@ import {Motorcycle} from '../models/motorcycle';
 })
 export class MotorcycleService {
 
-  private apiUrl =     'http://localhost:8080/api/motorcycle';
+  private apiUrl =     '/api/motorcycle';
   private motoId: number = 0;
 
 
