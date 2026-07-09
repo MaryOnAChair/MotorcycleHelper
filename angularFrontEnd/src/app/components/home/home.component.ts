@@ -40,6 +40,8 @@ export class HomeComponent implements OnInit {
     year: 2023,
     odometer: 0,
   };
+  filteredMotorcycles: Motorcycle[] = [];
+  searchText: string = "";
 
 
   constructor(private http: HttpClient, private MotorcycleService: MotorcycleService,private router: Router,
@@ -59,6 +61,7 @@ export class HomeComponent implements OnInit {
       .subscribe(data => {
 
         this.motorcycles = data;
+        this.filteredMotorcycles = data;
       });
   }
 
@@ -81,6 +84,7 @@ export class HomeComponent implements OnInit {
     this.MotorcycleService.deleteMotorcycle(moto_id).subscribe({
       next: () => {
         this.motorcycles = this.motorcycles.filter(motorcycle => motorcycle.moto_id !== moto_id);
+        this.filteredMotorcycles = this.filteredMotorcycles.filter(motorcycle => motorcycle.moto_id !== moto_id);
       },
       error: (err) => console.error('Delete failed', err)
     });
@@ -90,6 +94,26 @@ export class HomeComponent implements OnInit {
   editMotorcycle() {
     this.router.navigate(['/editMotorcycle']); //Goes to edit page
   }
+
+  //Searches Motorcycle
+  searchMotorcycles() {
+    const search = this.searchText.toLowerCase().trim();
+
+    if(!search) {
+      this.filteredMotorcycles = this.motorcycles;
+      return;
+    }
+
+    //Filters List
+    this.filteredMotorcycles = this.motorcycles.filter(motorcycle =>
+      motorcycle.brand.toLowerCase().includes(search) ||
+      motorcycle.model.toLowerCase().includes(search) ||
+      motorcycle.year.toString().includes(search)
+    );
+  }
+
+
+
 
 
 

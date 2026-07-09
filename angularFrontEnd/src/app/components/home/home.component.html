@@ -13,12 +13,18 @@
   <input type="number" placeholder="Year" [(ngModel)]="motorcycle.year" />
 
   <button class="addButton" (click)="addMotorcycle()">Add</button>
-
+  <div class="seachBar">
+    <h3>Search: </h3>
+    <input type="text"
+           [(ngModel)]="searchText"
+            (input)="searchMotorcycles()"
+            placeholder="Brand,Model or Year">
+  </div>
 </div>
 
 <div class="background">
 <div class="bikeGrid">
-<div class="bikeCard" *ngFor="let bike of motorcycles">
+<div class="bikeCard" *ngFor="let bike of filteredMotorcycles">
   <h3>{{bike.brand}}
       {{bike.model}}</h3>
   <h4>{{bike.year}}</h4>

@@ -91,3 +91,9 @@ button:hover{
   margin:5px;
 
 }
+.seachBar{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
